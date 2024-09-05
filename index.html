@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Lesson Plan Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+        }
+        h1 {
+            color: #333;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+        }
+        #responseContainer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #e7f3ff;
+            border-radius: 8px;
+            display: none;
+        }
+        #responseContainer p {
+            color: #333;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Lesson Plan Generator</h1>
+        <p>Fill in the details below and get a generated lesson plan instantly.</p>
+        
+        <!-- Embed Google Form -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdy6g9uLNTQcXwSewvqFMjGgoEkDQm7JquLKipwqbgmrdnHPA/viewform?embedded=true" 
+                width="640" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+        <!-- Container for ChatGPT response -->
+        <div id="responseContainer">
+            <h3>Generated Lesson Plan</h3>
+            <p id="chatgptResponse"></p>
+        </div>
+    </div>
+
+    <script>
+        // Example code to fetch response from ChatGPT API
+        document.querySelector("iframe").onload = function () {
+            // Once form is submitted, send data to your backend (or API) to get a response from ChatGPT.
+            // This example uses a mock response.
+            setTimeout(function () {
+                // Mock API response from ChatGPT
+                const mockResponse = "Lesson Plan: Class 5, Subject: Mathematics, Topic: Algebra. Objective: Understanding basic algebraic equations and their applications.";
+                
+                // Show the response container and display the response
+                document.getElementById('responseContainer').style.display = 'block';
+                document.getElementById('chatgptResponse').innerText = mockResponse;
+            }, 5000); // Simulating delay (replace with actual form submission logic)
+        };
+    </script>
+
+</body>
+</html>
